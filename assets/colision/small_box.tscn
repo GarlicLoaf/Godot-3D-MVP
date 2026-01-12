@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dar7tty10j6wc"]
+
+[ext_resource type="Material" uid="uid://d3q7m7h58oyr5" path="res://assets/textures/orange.tres" id="1_lot25"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xo1q5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_55hhc"]
+
+[node name="SmallBox" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_xo1q5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_lot25")
+mesh = SubResource("BoxMesh_55hhc")

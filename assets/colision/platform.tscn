@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bux7peg6pwgty"]
+
+[ext_resource type="Material" uid="uid://bphtw7dx552mn" path="res://assets/textures/light.tres" id="1_6m5bv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_55hhc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xo1q5"]
+
+[node name="BigBox" type="StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("1_6m5bv")
+mesh = SubResource("BoxMesh_55hhc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_xo1q5")

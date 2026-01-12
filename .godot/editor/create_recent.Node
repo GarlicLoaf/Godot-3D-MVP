@@ -1,8 +1,8 @@
+Node3D
 CollisionShape3D
 MeshInstance3D
 StaticBody3D
 SubViewport
-Node3D
 Sprite3D
 Area3D
 Label

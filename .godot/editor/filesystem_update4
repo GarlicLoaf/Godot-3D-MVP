@@ -4,3 +4,9 @@ res://src/items/item_green.gd
 res://assets/world.tscn
 res://assets/interactables/blue.tscn
 res://assets/interactables/ball.tscn
+res://assets/colision/simple_box.tscn
+res://assets/colision/small_box.tscn
+res://assets/textures/green.tres
+res://assets/colision/platform.tscn
+res://assets/textures/white.tres
+res://assets/textures/light.tres

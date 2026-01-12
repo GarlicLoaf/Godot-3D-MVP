@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxjju314fuuap"]
+[gd_scene load_steps=11 format=3 uid="uid://dxjju314fuuap"]
 
 [ext_resource type="PackedScene" uid="uid://cx34obqx7vs7p" path="res://assets/player/player.tscn" id="1_l27oy"]
 [ext_resource type="Material" uid="uid://b00dj0bhi0tin" path="res://assets/textures/black.tres" id="2_qx6fs"]
 [ext_resource type="Texture2D" uid="uid://cbn1pkxb3pxis" path="res://addons/kenney_crosshair-pack/PNG/White/crosshair007.png" id="4_63vpf"]
 [ext_resource type="PackedScene" uid="uid://d14tjafnaem04" path="res://assets/interactables/ball.tscn" id="5_3qq62"]
-[ext_resource type="PackedScene" uid="uid://dw4yrvsw0m5v6" path="res://assets/colision/simple_box.tscn" id="5_kye1b"]
+[ext_resource type="PackedScene" uid="uid://dw4yrvsw0m5v6" path="res://assets/colision/big_box.tscn" id="5_kye1b"]
+[ext_resource type="PackedScene" uid="uid://dar7tty10j6wc" path="res://assets/colision/small_box.tscn" id="6_kye1b"]
+[ext_resource type="PackedScene" uid="uid://bux7peg6pwgty" path="res://assets/colision/platform.tscn" id="7_iyaqc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hjl76"]
 sky_top_color = Color(0.37254903, 0.56078434, 0.8156863, 1)
@@ -82,7 +84,24 @@ grow_vertical = 2
 texture = ExtResource("4_63vpf")
 
 [node name="Ball" parent="." instance=ExtResource("5_3qq62")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, 3)
 
-[node name="SimpleBox" parent="." groups=["ground_hard"] instance=ExtResource("5_kye1b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 3)
+[node name="Parkour" type="Node3D" parent="."]
+
+[node name="BigBox" parent="Parkour" instance=ExtResource("5_kye1b")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 6.5, 1.5, 4)
+
+[node name="SmallBox" parent="Parkour" instance=ExtResource("6_kye1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 3.5)
+
+[node name="BigBox" parent="." instance=ExtResource("5_kye1b")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 6.5, 1.5, 2)
+
+[node name="BigBox2" parent="." instance=ExtResource("5_kye1b")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 6.5, 1.5, 6)
+
+[node name="SmallBox" parent="." instance=ExtResource("6_kye1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 1.5)
+
+[node name="BigBox3" parent="." instance=ExtResource("7_iyaqc")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 9.5, 4, 2.5)

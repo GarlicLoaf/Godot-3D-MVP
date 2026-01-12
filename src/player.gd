@@ -2,8 +2,9 @@ extends CharacterBody3D
 
 @export var WALK_SPEED: float = 6.0
 @export var SPRINT_SPEED: float = 10.0
-@export var JUMP_VEL: float = 7.0
+@export var JUMP_VEL: float = 5.0
 @export var MOUSE_SENS: float = 0.001
+@export var JOY_SENS: float = 0.04
 @export var GRAB_INTENSITY: float = 4.0
 @export var THROW_MAX: float = 10.0
 
@@ -82,6 +83,14 @@ func _physics_process(delta: float) -> void:
 		var throw_vel = hand_vel.normalized() * speed
 		grabbed_object.linear_velocity = throw_vel
 		grabbed_object = null
+	
+	# Joystick input
+	var joy_input = Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)) * JOY_SENS
+	var deadzone = 0.01
+	if joy_input.length() > deadzone:
+		_apply_look(joy_input)
+
+
 	move_and_slide()
 
 
@@ -91,9 +100,12 @@ func _input(event: InputEvent) -> void:
 		velocity = Vector3(0, 0, 0)
 		is_flying = !is_flying
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void: 
 	if event is InputEventMouseMotion:
-		var relative = event.relative * MOUSE_SENS
-		head.rotate_y(-relative.x)
-		eye_cam.rotate_x(-relative.y)
-		eye_cam.rotation.x = clamp(eye_cam.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		var look_input = event.relative * MOUSE_SENS
+		_apply_look(look_input)
+	
+func _apply_look(look_input: Vector2) -> void:
+	head.rotate_y(-look_input.x)
+	eye_cam.rotate_x(-look_input.y)
+	eye_cam.rotation.x = clamp(eye_cam.rotation.x, deg_to_rad(-90), deg_to_rad(90))
