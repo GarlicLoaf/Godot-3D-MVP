@@ -1,0 +1,7 @@
+res://assets/interactables/blue.tscn
+res://assets/inventory/inventory.tres
+res://assets/inventory/items/blue.tres
+res://assets/player/player.tscn
+res://src/items/item_green.gd
+res://assets/world.tscn
+res://assets/colision/simple_box.tscn

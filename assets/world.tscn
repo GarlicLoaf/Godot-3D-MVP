@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxjju314fuuap"]
+
+[ext_resource type="PackedScene" uid="uid://cx34obqx7vs7p" path="res://assets/player/player.tscn" id="1_l27oy"]
+[ext_resource type="Material" uid="uid://b00dj0bhi0tin" path="res://assets/textures/black.tres" id="2_qx6fs"]
+[ext_resource type="Texture2D" uid="uid://cbn1pkxb3pxis" path="res://addons/kenney_crosshair-pack/PNG/White/crosshair007.png" id="4_63vpf"]
+[ext_resource type="PackedScene" uid="uid://d14tjafnaem04" path="res://assets/interactables/blue.tscn" id="5_3qq62"]
+[ext_resource type="PackedScene" uid="uid://dw4yrvsw0m5v6" path="res://assets/colision/simple_box.tscn" id="5_kye1b"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hjl76"]
+sky_top_color = Color(0.37254903, 0.56078434, 0.8156863, 1)
+sky_horizon_color = Color(0.64705884, 0.654902, 0.67058825, 1)
+ground_bottom_color = Color(0.37254903, 0.56078434, 0.8156863, 1)
+ground_horizon_color = Color(0.64705884, 0.654902, 0.67058825, 1)
+
+[sub_resource type="Sky" id="Sky_l27oy"]
+sky_material = SubResource("ProceduralSkyMaterial_hjl76")
+
+[sub_resource type="Environment" id="Environment_ddhnk"]
+background_mode = 2
+sky = SubResource("Sky_l27oy")
+ambient_light_color = Color(0.46666667, 0.46666667, 0.46666667, 1)
+ambient_light_sky_contribution = 0.25
+tonemap_mode = 2
+tonemap_white = 1.5
+
+[node name="World" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_l27oy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9164248, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ddhnk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.53212875, 0.79438007, 0.29291534, -0.26112506, -0.48308182, 0.8357308, 0.8053898, 0.36822888, 0.4644941, 0, 2.0961258, 0)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="Collision" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Collision" groups=["ground_hard"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.5)
+size = Vector3(22, 1, 22)
+material = ExtResource("2_qx6fs")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="crosshair" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/crosshair"]
+modulate = Color(1, 1, 1, 0.49803922)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_63vpf")
+
+[node name="Ball" parent="." instance=ExtResource("5_3qq62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 3)
+
+[node name="SimpleBox" parent="." groups=["ground_hard"] instance=ExtResource("5_kye1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 3)

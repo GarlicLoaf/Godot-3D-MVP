@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cx34obqx7vs7p"]
+
+[ext_resource type="Script" uid="uid://buc7en58eqbg2" path="res://src/player.gd" id="1_d6veg"]
+[ext_resource type="Resource" uid="uid://b2y3mev0p3xc0" path="res://assets/inventory/inventory.tres" id="2_v2miy"]
+[ext_resource type="PackedScene" uid="uid://cmytskanio4pe" path="res://assets/inventory/inv_ui.tscn" id="3_ouxva"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d6veg"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_h6syq"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_d6veg")
+inv = ExtResource("2_v2miy")
+
+[node name="Head" type="Node3D" parent="."]
+
+[node name="EyeCam" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.67674124, 0)
+current = true
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/EyeCam"]
+target_position = Vector3(0, 0, -3)
+
+[node name="Hand" type="Node3D" parent="Head/EyeCam"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/EyeCam/Hand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29960966, 0.060415268)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_d6veg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_h6syq")
+
+[node name="Inv_UI" parent="." instance=ExtResource("3_ouxva")]
