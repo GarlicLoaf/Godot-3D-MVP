@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1768039572
+::res://::1768226488
 icon.svg::CompressedTexture2D::5397383804388153835::1767689833::1767689837::1::::<><><>0<>0<>6ce308e1dc4c18a8a5aed0930f0e6790<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://addons/::1767949592
 free-herbs and mats icons.png::CompressedTexture2D::6858229470507909962::1767786543::1767786543::1::::<><><>0<>0<>3ccdf61e9d6189df1d0c2b10bae22bcd<>res://.godot/imported/free-herbs and mats icons.png-fc76a1c0fb2e027bb84fed56a8bf5054.ctex::
@@ -1402,24 +1402,26 @@ texture_10.svg::CompressedTexture2D::8697171191878638086::1767693463::1767693463
 texture_11.svg::CompressedTexture2D::1444666666128989658::1767693463::1767693463::1::::<><><>0<>0<>15282c0cb56d4b3b10cea922114a664b<>res://.godot/imported/texture_11.svg-feec3347513d8f76f18d28779d9e1473.ctex::
 texture_12.svg::CompressedTexture2D::7509190457637359901::1767693463::1767693463::1::::<><><>0<>0<>dddc6582c7d4198792883d725094aee5<>res://.godot/imported/texture_12.svg-d87cf0e5bc40c01b83715afc509630d9.ctex::
 texture_13.svg::CompressedTexture2D::8668314763772556612::1767693463::1767693463::1::::<><><>0<>0<>9f88f911e1f168076e401d94ac0d650c<>res://.godot/imported/texture_13.svg-34bbf178d6a3079e238efcbea282d743.ctex::
-::res://assets/::1767958581
-world.tscn::PackedScene::8792768535497419119::1767958581::0::1::::<><><>0<>0<><>::uid://cx34obqx7vs7p::::res://assets/player/player.tscn<>uid://b00dj0bhi0tin::::res://assets/textures/black.tres<>uid://d3q7m7h58oyr5::::res://assets/textures/orange.tres<>uid://cbn1pkxb3pxis::::res://addons/kenney_crosshair-pack/PNG/White/crosshair007.png<>uid://d14tjafnaem04::::res://assets/interactables/blue.tscn
+::res://assets/::1768040793
+world.tscn::PackedScene::8792768535497419119::1768040793::0::1::::<><><>0<>0<><>::uid://cx34obqx7vs7p::::res://assets/player/player.tscn<>uid://b00dj0bhi0tin::::res://assets/textures/black.tres<>uid://cbn1pkxb3pxis::::res://addons/kenney_crosshair-pack/PNG/White/crosshair007.png<>uid://d14tjafnaem04::::res://assets/interactables/blue.tscn<>uid://dw4yrvsw0m5v6::::res://assets/colision/simple_box.tscn
+::res://assets/colision/::1768040617
+simple_box.tscn::PackedScene::8764772264136854801::1768040617::0::1::::<><><>0<>0<><>::uid://d3q7m7h58oyr5::::res://assets/textures/orange.tres
 ::res://assets/dialogue/::1767950603
 balloon.gd::GDScript::3253884511100940071::1767950603::0::1::::<>Node3D<><>0<>0<><>::
 balloon.tscn::PackedScene::4446987681121562720::1767950603::0::1::::<><><>0<>0<><>::uid://bmmhac5h8j4wp::::res://assets/dialogue/balloon.gd<>uid://ckvgyvclnwggo::::res://addons/dialogue_manager/dialogue_label.tscn<>uid://bb52rsfwhkxbn::::res://addons/dialogue_manager/dialogue_responses_menu.gd
-::res://assets/interactables/::1767956908
-blue.tscn::PackedScene::9045208643858440095::1767956908::0::1::::<><><>0<>0<><>::uid://m3pm7ohfj14b::::res://src/items/item_green.gd<>uid://ikhkt5mcc8sk::::res://assets/inventory/items/blue.tres
-::res://assets/inventory/::1767956622
-inventory.tres::Resource/Inv::4332786277033080937::1767956622::0::1::::<><><>0<>0<><>::uid://dan6qn0bi022j::::res://src/inventory/inventory.gd<>uid://b4xgn2yw53v1f::::res://src/inventory/inv_slot.gd
+::res://assets/interactables/::1768043441
+blue.tscn::PackedScene::9045208643858440095::1768043441::0::1::::<><><>0<>0<><>::uid://m3pm7ohfj14b::::res://src/items/item_green.gd<>uid://ikhkt5mcc8sk::::res://assets/inventory/items/blue.tres
+::res://assets/inventory/::1768039645
+inventory.tres::Resource/Inv::4332786277033080937::1768039645::0::1::::<><><>0<>0<><>::uid://dan6qn0bi022j::::res://src/inventory/inventory.gd<>uid://b4xgn2yw53v1f::::res://src/inventory/inv_slot.gd
 inv_ui.tscn::PackedScene::5665838850128313222::1767786145::0::1::::<><><>0<>0<><>::uid://cx8hn0bidqmhs::::res://src/inventory/inv_ui.gd<>uid://bbgc6ug2c2y51::::res://addons/inventory.png<>uid://cjux6tkg2hmlb::::res://assets/inventory/inv_ui_slot.tscn
 inv_ui_slot.tscn::PackedScene::5447281379355049423::1767786156::0::1::::<><><>0<>0<><>::uid://bmtk4c4k4lasp::::res://src/inventory/inv_ui_slot.gd
-::res://assets/inventory/items/::1767956622
-blue.tres::Resource/InvItem::582598448369071394::1767956622::0::1::::<><><>0<>0<><>::uid://b308f7ovmb0rn::::res://src/inventory/intentory_item.gd<>uid://c4ygbjhfo4tru::::res://addons/free-herbs and mats icons.png
+::res://assets/inventory/items/::1768039645
+blue.tres::Resource/InvItem::582598448369071394::1768039645::0::1::::<><><>0<>0<><>::uid://b308f7ovmb0rn::::res://src/inventory/intentory_item.gd<>uid://c4ygbjhfo4tru::::res://addons/free-herbs and mats icons.png
 violet.tres::Resource/InvItem::107851107028124193::1767786807::0::1::::<><><>0<>0<><>::uid://b308f7ovmb0rn::::res://src/inventory/intentory_item.gd<>uid://c4ygbjhfo4tru::::res://addons/free-herbs and mats icons.png
 ::res://assets/npcs/::1767954325
 npc.tscn::PackedScene::7845564803618692985::1767954325::0::1::::<><><>0<>0<><>::uid://b4mficotslkr5::::res://assets/dialogue/balloon.tscn
-::res://assets/player/::1767956031
-player.tscn::PackedScene::6446773220408362271::1767956031::0::1::::<><><>0<>0<><>::uid://buc7en58eqbg2::::res://src/player.gd<>uid://b2y3mev0p3xc0::::res://assets/inventory/inventory.tres<>uid://cmytskanio4pe::::res://assets/inventory/inv_ui.tscn
+::res://assets/player/::1768039723
+player.tscn::PackedScene::6446773220408362271::1768039723::0::1::::<><><>0<>0<><>::uid://buc7en58eqbg2::::res://src/player.gd<>uid://b2y3mev0p3xc0::::res://assets/inventory/inventory.tres<>uid://cmytskanio4pe::::res://assets/inventory/inv_ui.tscn
 ::res://assets/textures/::1767701187
 black.tres::StandardMaterial3D::4192950756577150033::1767693824::0::1::::<><><>0<>0<><>::uid://cr1ehmtykitt2::::res://addons/kenney_prototype-textures/PNG/Dark/texture_02.png
 light.tres::StandardMaterial3D::3454898579338409217::1767701187::0::1::::<><><>0<>0<><>::uid://c88rqfg5h5mi8::::res://addons/kenney_prototype-textures/PNG/Light/texture_07.png
@@ -1434,5 +1436,5 @@ inventory.gd::GDScript::7188010482841122099::1767785886::0::1::::Inv<>Resource<>
 inv_slot.gd::GDScript::4469766811063332429::1767785066::0::1::::InvSlot<>Resource<><>0<>0<><>::
 inv_ui.gd::GDScript::6455758786211741856::1767786087::0::1::::<>CanvasLayer<><>0<>0<><>::
 inv_ui_slot.gd::GDScript::3268569092967101339::1767786285::0::1::::<>Panel<><>0<>0<><>::
-::res://src/items/::1767790376
-item_green.gd::GDScript::901002587887998907::1767790376::0::1::::<>RigidBody3D<><>0<>0<><>::
+::res://src/items/::1768043388
+item_green.gd::GDScript::901002587887998907::1768043388::0::1::::<>RigidBody3D<><>0<>0<><>::

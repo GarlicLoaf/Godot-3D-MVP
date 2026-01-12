@@ -6,7 +6,6 @@ extends CharacterBody3D
 @export var MOUSE_SENS: float = 0.001
 @export var GRAB_INTENSITY: float = 4.0
 @export var THROW_MAX: float = 10.0
-@export var inv: Inv
 
 @onready var head: Node3D = $Head
 @onready var hand: Node3D = $Head/EyeCam/Hand
