@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cx34obqx7vs7p" path="res://assets/player/player.tscn" id="1_l27oy"]
 [ext_resource type="Material" uid="uid://b00dj0bhi0tin" path="res://assets/textures/black.tres" id="2_qx6fs"]
 [ext_resource type="Texture2D" uid="uid://cbn1pkxb3pxis" path="res://addons/kenney_crosshair-pack/PNG/White/crosshair007.png" id="4_63vpf"]
-[ext_resource type="PackedScene" uid="uid://d14tjafnaem04" path="res://assets/interactables/blue.tscn" id="5_3qq62"]
+[ext_resource type="PackedScene" uid="uid://d14tjafnaem04" path="res://assets/interactables/ball.tscn" id="5_3qq62"]
 [ext_resource type="PackedScene" uid="uid://dw4yrvsw0m5v6" path="res://assets/colision/simple_box.tscn" id="5_kye1b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hjl76"]
@@ -27,6 +27,8 @@ tonemap_white = 1.5
 
 [node name="Player" parent="." instance=ExtResource("1_l27oy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9164248, 0)
+GRAB_INTENSITY = 5.0
+THROW_MAX = 5.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ddhnk")

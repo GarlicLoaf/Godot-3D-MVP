@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://d14tjafnaem04"]
+[gd_scene load_steps=5 format=3 uid="uid://d14tjafnaem04"]
 
-[ext_resource type="Script" uid="uid://m3pm7ohfj14b" path="res://src/items/item_green.gd" id="1_yynqx"]
-[ext_resource type="Resource" uid="uid://ikhkt5mcc8sk" path="res://assets/inventory/items/blue.tres" id="2_ylwal"]
+[ext_resource type="Script" uid="uid://m3pm7ohfj14b" path="res://src/items/ball_script.gd" id="1_yynqx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3d6v6"]
 friction = 0.9
@@ -12,20 +11,18 @@ bounce = 0.3
 [sub_resource type="SphereShape3D" id="SphereShape3D_74gqa"]
 
 [node name="egg" type="RigidBody3D" groups=["pickable"]]
-mass = 0.2
 physics_material_override = SubResource("PhysicsMaterial_3d6v6")
-gravity_scale = 0.75
+gravity_scale = 1.25
 can_sleep = false
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_yynqx")
-item = ExtResource("2_ylwal")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 mesh = SubResource("SphereMesh_3d6v6")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 shape = SubResource("SphereShape3D_74gqa")
