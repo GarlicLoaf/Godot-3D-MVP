@@ -30,7 +30,7 @@ tonemap_white = 1.5
 [node name="Player" parent="." instance=ExtResource("1_l27oy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9164248, 0)
 GRAB_INTENSITY = 5.0
-THROW_MAX = 5.0
+THROW_MAX = 7.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ddhnk")
