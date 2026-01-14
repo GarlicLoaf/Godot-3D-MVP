@@ -7,6 +7,7 @@ extends CharacterBody3D
 @export var JOY_SENS: float = 0.04
 @export var GRAB_INTENSITY: float = 4.0
 @export var THROW_MAX: float = 10.0
+@export var THROW_INTENSITY: float = 10.0
 
 @onready var head: Node3D = $Head
 @onready var hand: Node3D = $Head/EyeCam/Hand
@@ -56,9 +57,27 @@ func _physics_process(delta: float) -> void:
 	var hand_vel = (hand.global_position - prev_hand_pos) / delta
 	prev_hand_pos = hand.global_position
 	
-	# Pickup
-	if is_grabbing and not Input.is_action_just_released("pickup"):
-		grabbed_object.global_position = grabbed_object.global_position.lerp(hand.global_position, delta * GRAB_INTENSITY)
+	# Pickup logic
+	if grabbed_object:
+		if not Input.is_action_just_released("pickup"):
+			# Move the object towards hand
+			grabbed_object.global_position = grabbed_object.global_position.lerp(hand.global_position, delta * GRAB_INTENSITY)
+			if Input.is_action_just_pressed("interact"):
+				# throwing logic
+				var throw_dir = raycast.target_position.normalized()
+				grabbed_object.apply_impulse(throw_dir * THROW_INTENSITY)
+				grabbed_object.release_timer()
+
+				_release_object()
+			
+		else:
+			# Make sure the player never throws faster than THROW_MAX
+			var speed = hand_vel.length()
+			speed = min(speed, THROW_MAX)
+			var throw_vel = hand_vel.normalized() * speed
+			grabbed_object.linear_velocity = throw_vel
+
+			_release_object()
 	else:
 		if Input.is_action_pressed("pickup"):
 			var object = raycast.get_collider()
@@ -71,19 +90,6 @@ func _physics_process(delta: float) -> void:
 				grabbed_object.sleeping = true
 				is_grabbing = true
 
-	if Input.is_action_just_released("pickup") and grabbed_object:
-		is_grabbing = false
-
-		grabbed_object.gravity_scale = 0.75
-		grabbed_object.sleeping = false
-
-		# Make sure the player never throws faster than THROW_MAX
-		var speed = hand_vel.length()
-		speed = min(speed, THROW_MAX)
-		var throw_vel = hand_vel.normalized() * speed
-		grabbed_object.linear_velocity = throw_vel
-		grabbed_object = null
-	
 	# Joystick input
 	var joy_input = Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)) * JOY_SENS
 	var deadzone = 0.01
@@ -92,8 +98,6 @@ func _physics_process(delta: float) -> void:
 
 
 	move_and_slide()
-
-
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("fly"):
@@ -109,3 +113,10 @@ func _apply_look(look_input: Vector2) -> void:
 	head.rotate_y(-look_input.x)
 	eye_cam.rotate_x(-look_input.y)
 	eye_cam.rotation.x = clamp(eye_cam.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+
+func _release_object() -> void:
+	is_grabbing = false
+
+	grabbed_object.gravity_scale = 0.75
+	grabbed_object.sleeping = false
+	grabbed_object = null
